@@ -11,12 +11,17 @@ from botbuilder.core import (
     BotFrameworkAdapterSettings,
     TurnContext,
     BotFrameworkAdapter,
+    MemoryStorage,
+    UserState,
+    ConversationState,
 )
 from botbuilder.core.integration import aiohttp_error_middleware
 from botbuilder.schema import Activity, ActivityTypes
 
-from bot import MyBot
 from config import DefaultConfig
+from bots import DialogAndWelcomeBot
+from flight_booking_recognizer import FlightBookingRecognizer
+from dialogs import MainDialog, BookingDialog
 
 CONFIG = DefaultConfig()
 
@@ -56,8 +61,16 @@ async def on_error(context: TurnContext, error: Exception):
 
 ADAPTER.on_turn_error = on_error
 
-# Create the Bot
-BOT = MyBot()
+# Create MemoryStorage, UserState and ConversationState
+MEMORY = MemoryStorage()
+USER_STATE = UserState(MEMORY)
+CONVERSATION_STATE = ConversationState(MEMORY)
+
+# Create dialogs and Bot
+RECOGNIZER = FlightBookingRecognizer(CONFIG)
+BOOKING_DIALOG = BookingDialog()
+DIALOG = MainDialog(RECOGNIZER, BOOKING_DIALOG)
+BOT = DialogAndWelcomeBot(CONVERSATION_STATE, USER_STATE, DIALOG)
 
 
 # Listen for incoming requests on /api/messages

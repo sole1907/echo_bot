@@ -1,0 +1,29 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "Image",
+            "url": "https://www.pngitem.com/pimgs/m/175-1758513_thumbs-up-happy-face-free-hd-smiley-transparent.png"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Hello and Welcome!",
+            "size": "large"
+        },
+        {
+            "type": "TextBlock",
+            "text": "*This is a chat bot that can assist with booking a flight for you.*"
+        },
+        {
+            "type": "TextBlock",
+            "text": "*To begin the conversation, simply type in 'Book Flight'*"
+        },
+        {
+            "type": "TextBlock",
+            "text": "Have Fun!",
+            "separation": "none"
+        }
+    ]
+  }
