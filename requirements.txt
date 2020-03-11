@@ -1,5 +1,5 @@
 botbuilder-core>=4.7.0
 aiohttp
+datatypes-date-time
 botbuilder-ai
 botbuilder-dialogs
-datatypes_date_time
