@@ -12,6 +12,7 @@ class MyBot(ActivityHandler):
         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
         "version": "1.0",
         "type": "AdaptiveCard",
+        "speak": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\">Are you <emphasis level=\"moderate\">sure</emphasis> that you want to cancel this transaction?</speak>",
         "body": [
             {
                 "type": "Image",
