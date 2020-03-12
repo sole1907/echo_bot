@@ -18,7 +18,11 @@
         },
         {
             "type": "TextBlock",
-            "text": "*To begin the conversation, simply type in 'Book Flight'*"
+            "text": "*To begin the conversation:*"
+        },
+        {
+            "type": "TextBlock",
+            "text": "*Simply type or say: 'Book Flight'*"
         },
         {
             "type": "TextBlock",
