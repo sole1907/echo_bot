@@ -31,15 +31,15 @@ class DialogAndWelcomeBot(DialogBot):
 
 
     async def on_event_activity(self, turn_context: TurnContext):
-        # if (turn_context.activity.name == "webchat/join"):
-        welcome_card = self.create_adaptive_card_attachment()
-        response = MessageFactory.attachment(welcome_card)
-        await turn_context.send_activity(response)
-        await DialogHelper.run_dialog(
-            self.dialog,
-            turn_context,
-            self.conversation_state.create_property("DialogState"),
-        )        
+        if (turn_context.activity.name == "webchat/join"):
+            welcome_card = self.create_adaptive_card_attachment()
+            response = MessageFactory.attachment(welcome_card)
+            await turn_context.send_activity(response)
+            # await DialogHelper.run_dialog(
+            #     self.dialog,
+            #     turn_context,
+            #     self.conversation_state.create_property("DialogState"),
+            # )        
 
     async def on_members_added_activity(
         self, members_added: List[ChannelAccount], turn_context: TurnContext
@@ -51,11 +51,11 @@ class DialogAndWelcomeBot(DialogBot):
                 welcome_card = self.create_adaptive_card_attachment()
                 response = MessageFactory.attachment(welcome_card)
                 await turn_context.send_activity(response)
-                await DialogHelper.run_dialog(
-                    self.dialog,
-                    turn_context,
-                    self.conversation_state.create_property("DialogState"),
-                )
+                # await DialogHelper.run_dialog(
+                #     self.dialog,
+                #     turn_context,
+                #     self.conversation_state.create_property("DialogState"),
+                # )
 
     # Load attachment from file.
     def create_adaptive_card_attachment(self):
