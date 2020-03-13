@@ -30,11 +30,11 @@ class DialogAndWelcomeBot(DialogBot):
         )
 
 
-    async def on_event_activity(self, turn_context: TurnContext):
-        if (turn_context.activity.name == "webchat/join"):
-            welcome_card = self.create_adaptive_card_attachment()
-            response = MessageFactory.attachment(welcome_card)
-            await turn_context.send_activity(response)
+    # async def on_event_activity(self, turn_context: TurnContext):
+    #     if (turn_context.activity.name == "webchat/join"):
+    #         welcome_card = self.create_adaptive_card_attachment()
+    #         response = MessageFactory.attachment(welcome_card)
+    #         await turn_context.send_activity(response)
             # await DialogHelper.run_dialog(
             #     self.dialog,
             #     turn_context,
